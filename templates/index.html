@@ -1,0 +1,31 @@
+
+
+
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Demo App
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<h1>Home </h1>
+
+{% if not current_user.is_authenticated %}
+<li><a href="#">Home</a></li>
+<li><a href="{{ url_for('login') }}">Login</a></li>
+<li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+
+{% endif %}
+
+ {% if current_user.is_authenticated %}
+        you are logged in ...
+        Hi {{ name }}!
+ {% endif %}
+
+
+
+{% endblock %}
